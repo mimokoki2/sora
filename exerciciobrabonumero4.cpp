@@ -1,3 +1,6 @@
+//Elabore um algoritmo que permita o usuário digitar o gênero (M/F)
+//E a idade de 10 pessoas e que calcule e exiba a quantidade de mulheres
+//E a média das idades digitadas
 #include<stdio.h>
 #include<locale.h>
 #include<stdlib.h>
