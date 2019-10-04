@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<locale.h>
+#include<stdlib.h>
 int main()
 {
 	
@@ -25,7 +26,7 @@ int main()
 	printf("                     idade:");
 	scanf("%d", &idade);
 	printf("    \n");
-	if (idade <= 0) printf("que porra de idade é essa\n");
+	if (idade <= 0) exit(0);
 	media = media + idade;
 	
 	
