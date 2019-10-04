@@ -23,6 +23,8 @@ int main()
 	printf("                     opção:");
 	scanf("%d", &gen);
 	if (gen == 1) g = g + gen;
+	if (gen > 2) exit(0);
+	if (gen < 1) exit(0);
 	printf("                     idade:");
 	scanf("%d", &idade);
 	printf("    \n");
