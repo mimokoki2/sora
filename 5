@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int i, notas;
+	int contador;
+	float nota, maior, menor;
+	float media = 0;
+	
+	maior = 0;
+	menor = 10;
+	
+	printf("Digite a quantidade de notas:");
+	
+	scanf("%d", &notas);
+	if (notas < 0) exit(0);	
+	for(i = 1; i < notas + 1; i++)
+	{
+		printf("Digite o valor da nota: ");
+		scanf("%f", &nota);
+		if (nota < 0) exit(0);
+		if (nota > maior) maior = nota;
+		if (nota <  menor) menor = nota;
+		media = nota + media;
+		
+	}
+	printf("A maior nota é: %f \n", maior);
+	printf("A menor nota é: %f \n", menor);
+	media = media / notas;
+	printf("A media final é: %f", media);
+}
