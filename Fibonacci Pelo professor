@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+	int sequencia, i;
+	printf("Digite a quantidade de numeros da sequencia: ");
+	scanf("%d", &sequencia);
+	
+	int anterior = 0;
+	int proximo = 1;
+	
+	printf("%d, %d, ", anterior, proximo);
+	
+	for(i = 0; i < sequencia; i++){
+	
+	int aux = proximo;
+	proximo += anterior;
+	anterior = aux;
+	if(i == sequencia - 1)
+		printf("%d", proximo);
+	else
+		printf("%d, ", proximo);
+	}
+}
