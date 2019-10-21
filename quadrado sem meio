@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<locale.h>
+int main(){
+	setlocale(LC_ALL, "portuguese");
+	
+	int h; // Lado;
+	int x; //Coluna;
+	int l; // linha
+	printf("Digite a altura do quadrado:  ");
+	scanf("%d",&h);
+	
+	
+	for(x = 1; x <= h; x++) // Imprimir a parte de cima;
+	{
+		printf(" *");
+	}
+	printf("\n");// ir para a proxima linha
+	
+	
+	for(l = 2; l < h; l++)
+	{
+			printf(" *"); // Coluna Horizontal Esquerda;
+	 	for(x = 2; x < h; x++)
+	{ 
+			printf("  "); // imprimir o espaço vazio;
+	}	
+		printf(" * \n");//Coluna Horizontal Direita;
+		
+	}
+    for(x = 1; x <= h; x++) // Imprimir a parte de baixo;
+    {
+		printf(" *");
+			
+	}		
+			
+	return 0;
+}
