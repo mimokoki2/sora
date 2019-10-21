@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<locale.h>
+int main(){
+	setlocale(LC_ALL, "portuguese");
+	
+	int lado;
+	
+	printf("Digite o tamanho do lado do quadrado:  ");
+	scanf("%d",&lado);
+	
+	
+	for(int col=1; col<=lado;col++){// Coluna recebe 1, enquanto coluna for menor ou igual que o lado, incrementa +1;		
+		printf(" *");// imprime a imagem de um espaço e asterisco;
+	}
+	printf("\n");//quebra a linha para a próxima instrução;
+	
+	//no próximo "FOR" é onde são feitas as laterais do quadrado;
+	for(int lin=2;lin<lado;lin++){// aqui a variavel linha, inicia com 2, e enquanto ela for menor que o lado, incrementa com +1;
+			printf(" *");// e imprime espaço e asterisco;
+	 	for(int col=2;col<lado;col++){ //dentro deste mesmo "FOR", temos um outro para criar as colunas vazias;coluna recebe 2, enquanto for menor que o lado, soma com 1;
+			printf("  "); // e imprime o espaço vazio;
+		}	
+		printf(" * \n");//aqui finaliza o "FOR" da criação das laterais ;
+		
+	}
+    for(int col=1; col<=lado;col++){		// aqui o código repete , veja que é como o primeiro "FOR" declarado. para fazer a última linha , a base do quadrado.
+		printf(" *");//onde os asteriscos preenchem a linha.
+			
+	}		
+			
+	return 0;
+}
