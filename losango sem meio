@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+     int i;
+	 int x;
+	 int h;
+    printf("Enter the number of rows: \n");
+    scanf("%d",&h);
+
+	for(i = 1; i <= h; i++)//triangulo superior
+{
+    for(x = h; x > i; x--)
+	{
+       printf(" ");//espaço da borda 
+    }
+    printf("*"); // superior esquerda
+    for(x = 1; x < (i-1)*2; x++)
+	{
+       printf(" "); //espaço vazio superior
+    }
+    if(i==1)
+	{
+      printf("\n");//vai para o proximo lado
+    }
+    else
+	{
+      printf("*\n");// superior direita
+    }
+}
+//triangulo inferior
+	for(i = h - 1; i >= 1; i--)
+	{
+    for(x = h; x > i; x--)
+	{
+       printf(" ");// espaço da borda
+    }
+    printf("*");//borda inferior esquerda
+    for(x = 1; x <(i-1)*2; x++)
+	{
+      printf(" ");//espaço vazio
+    }
+    if(i==1)
+	{
+      printf("\n");//vai para o proximo lado;
+    }
+    else
+	{
+      printf("*\n");//borda inferior direita
+    }
+    }
+}
