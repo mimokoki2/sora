@@ -1,0 +1,32 @@
+// usuario vai digitar um numero, programa vai receber esse numero de dados
+//falar media, maior nota menor nota.
+#include<stdio.h>
+#include<locale.h>
+#include<stdlib.h>
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int vet;
+	int *v;
+	int nota;
+	float media = 0;
+	int i;
+	printf("Digite a quantidade de notas: ");
+	scanf("%d", &vet);
+	v = (int *)malloc(vet * sizeof(int));
+	for (i = 0; i < vet; ++i)
+	{
+		v[i] = i;
+	}
+	for (i = 0; i < vet; ++i)
+	{
+		printf("Digite a nota: ");
+		scanf("%d", &nota);
+		media = nota + media;
+	
+	}
+	media = media / vet;
+	printf("\n");
+	printf("Media: %.2f\n", media);
+return 0;
+}
