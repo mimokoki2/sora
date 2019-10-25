@@ -11,6 +11,8 @@ int main()
 	int nota;
 	float media = 0;
 	int i;
+	float maior = 0;
+	float menor = 10;
 	printf("Digite a quantidade de notas: ");
 	scanf("%d", &vet);
 	v = (int *)malloc(vet * sizeof(int));
@@ -22,11 +24,15 @@ int main()
 	{
 		printf("Digite a nota: ");
 		scanf("%d", &nota);
+		if (nota > maior) maior = nota;
+		if (nota < menor) menor = nota;
 		media = nota + media;
-	
+		
 	}
 	media = media / vet;
 	printf("\n");
 	printf("Media: %.2f\n", media);
+	printf("Maior : %.2f\n", maior);
+	printf("Menor : %.2f", menor);
 return 0;
 }
