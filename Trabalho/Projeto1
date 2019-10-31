@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+int main()
+{
+	int id,qtd,dt, op, preco, conf;
+	char nome[100];
+	 
+	
+	printf("O que deseja fazer?\n");
+	printf("------------------------------\n");
+	printf("[1] -	Cadastro de Produto\n[2] -	Mostrar Estoque\n[3] -	Alterar Produto\n[4] -	Excluir Produto\n[5] -	Pesquisar\n-------------------------------\n");
+	printf("opcao: ");
+	scanf("%d", &op);
+	printf("------------------------------\n");
+	switch(op)
+	{
+		case 1:
+	printf("ID: ");
+	scanf("%d", &id);
+	printf("Nome: ");
+	scanf("%s", &nome);
+	printf("preco: ");
+	scanf("%d", &preco);
+	printf("------------------------------\n");
+	printf("ID: %d, NOME: %s, PRECO: %d\n------------------------------\nConfirma operacao?\n------------------------------\n[1] -	Sim\n[2] -	Nao\n------------------------------\n Opcao: ", id, nome, preco);
+	scanf("%d", &conf);
+	printf("------------------------------\n");
+	if (conf == 1) printf("Produto Cadastrado com sucesso");
+	}
+	return 0;
+}
