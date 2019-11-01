@@ -1,0 +1,53 @@
+// prox aula vetor struct 10 registro
+
+#include<stdio.h>
+#include<conio.h>
+#include<locale.h>
+#include<stdlib.h>
+struct aluno
+{
+	char nome[50];
+	char materia[50];
+	int nota;
+	
+};
+int main()
+{
+	int notass;
+	int aux = 0;
+	int i;
+	setlocale(LC_ALL, "portuguese");
+	struct aluno al;
+	//***********************************//
+	fflush(stdin);
+	system("color 0b");
+	printf("cadastro de aluno \n");
+	//***********************************//
+	printf("Informe o Nome: ");
+	
+	fgets(al.nome, 40, stdin);
+	
+	printf("Informe a Matéria: ");
+	
+	fgets(al.materia, 40, stdin);
+	//***********************************//
+	for(i = 0; i <= 3; i++)
+	{
+		
+
+	printf("Informe a nota: ");
+	scanf("%d", &al.nota);
+	aux = al.nota + aux;
+	}
+	aux = aux / 4;
+	//***********************************//
+	printf("Informações do Aluno \n");
+	printf("Informe o Nome: %s ", al.nome);
+	printf("Informe o Matéria: %s ", al.materia);
+	printf("Informe o media: %d ", aux);
+	//***********************************//
+	
+	
+	
+	return 0;
+}
