@@ -1,34 +1,54 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<conio.h>
 int main()
 {
-	int id[100],qtd[100],dt, op, conf;
-	float preco;
+	int id,qtd,dt, op, conf;
+	float preco[100];
 	char nome[100];
-	 
-	do
-	{
-		system("color 0a");
+	int i, menu;
+	int aux = 0;
+	 int teste;
+	
+	fflush(stdin);
+	system("cls");
+	system("color 0a");
 	printf("O que deseja fazer?\n");
 	printf("------------------------------\n");
-	printf("[1] -	Cadastro de Produto\n[2] -	Mostrar Estoque\n[3] -	Alterar Produto\n[4] -	Excluir Produto\n[5] -	Pesquisar\n-------------------------------\n");
+	printf("[1] -	Cadastro de Produto\n[2] -	Mostrar Estoque\n[3] -	Alterar Produto\n[4] -	Excluir Produto\n[5] - 	Pesquisar\n[7] -	Sair do programa\n-------------------------------\n");
 	printf("opcao: ");
 	scanf("%d", &op);
 	printf("------------------------------\n");
+	switch(op)
+	{
+	case 1:
+	{
+	printf("Digite a quantidade de produtos a serem Cadastrados: ");
+	scanf("%d", &qtd);
+	for(i = 0; i < qtd; i++)
+	{
+	aux = i + aux;
 
-	printf("ID: ");
-	scanf("%d", &id);
 	printf("Nome: ");
-	scanf("%s", &nome[0]);
+	scanf("%s", &nome);
 	printf("preco: ");
-	scanf("%f", &preco);
+	scanf("%f", &preco[i]);
 	printf("------------------------------\n");
-	printf("ID: %d, NOME: %s, PRECO: %.2f\n------------------------------\nConfirma operacao?\n------------------------------\n[1] -	Sim\n[2] -	Nao\n------------------------------\n Opcao: ", id, nome, preco);
+	printf(" NOME: %s, PRECO: %.2f\n------------------------------\nConfirma operacao?\n------------------------------\n[1] -	Sim\n[2] -	Nao\n------------------------------\n Opcao: ", nome, preco[i]);
 	scanf("%d", &conf);
 	printf("------------------------------\n");
-
-	if (conf == 1) printf("Produto Cadastrado com sucesso!\n------------------------------\n");
+	}//FOR
+	printf("[1]-	Voltar ao menu anterior\n");
+	scanf("%d", &menu);
+	if(menu == 1) return main();
+	break;
 	
-	}while (op == 1);
+	}//CASE
+	case 2:
+		{
+	
+		}
+}
+		
 	return 0;
 }
