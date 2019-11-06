@@ -1,12 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
-	int id,qtd,dt, op, conf;
+	int qtd,dt, op, conf;
 	float preco[100];
 	char nomes[100][100];
 	int i, menu;
 	int aux = 0;
-	 int teste;
+	 int id[100];
+	 int ida;
 int main()
 {
 
@@ -29,13 +30,14 @@ int main()
 	for(i = 0; i < qtd; i++)
 	{
 	aux = i + aux;
-
+	printf("ID: ");
+	scanf("%d", &id[i]);
 	printf("Nome: ");
 	scanf("%s", &nomes[i]);
 	printf("preco: ");
 	scanf("%f", &preco[i]);
 	printf("------------------------------\n");
-	printf(" NOME: %s, PRECO: %.2f\n------------------------------\nConfirma operacao?\n------------------------------\n[1] -	Sim\n[2] -	Nao\n------------------------------\n Opcao: ", nomes[i], preco[i]);
+	printf("ID: %d, NOME: %s, PRECO: %.2f\n------------------------------\nConfirma operacao?\n------------------------------\n[1] -	Sim\n[2] -	Nao\n------------------------------\n Opcao: ", id[i], nomes[i], preco[i]);
 	scanf("%d", &conf);
 	printf("------------------------------\n");
 	}//FOR
@@ -49,9 +51,31 @@ int main()
 		{
 		for(int x = 0; x < qtd; x++)
 		{
-			printf("%s, %f\n", nomes[x], preco[x]);
+			printf("ID: %d, Nome: %s, Valor: %.2f\n",id[x], nomes[x], preco[x]);
 		}
 		}
+	case 3:
+		{
+			printf("Digite o ID do produto que deseja alterar: ");
+			scanf("%d", &ida);
+	
+			
+			
+			for(int d = 0; d < qtd; d++)
+			{
+				if(d == id[d]) 
+				{
+					printf("%d\n", id[d]);
+				}else{
+					printf("id nao encontrado");
+				}
+				
+
+			}
+			
+
+		}
+		
 }
 		
 	return 0;
