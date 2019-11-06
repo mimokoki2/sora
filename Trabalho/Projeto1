@@ -1,14 +1,15 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
-int main()
-{
 	int id,qtd,dt, op, conf;
 	float preco[100];
-	char nome[100];
+	char nomes[100][100];
 	int i, menu;
 	int aux = 0;
 	 int teste;
+int main()
+{
+
 	
 	fflush(stdin);
 	system("cls");
@@ -30,11 +31,11 @@ int main()
 	aux = i + aux;
 
 	printf("Nome: ");
-	scanf("%s", &nome);
+	scanf("%s", &nomes[i]);
 	printf("preco: ");
 	scanf("%f", &preco[i]);
 	printf("------------------------------\n");
-	printf(" NOME: %s, PRECO: %.2f\n------------------------------\nConfirma operacao?\n------------------------------\n[1] -	Sim\n[2] -	Nao\n------------------------------\n Opcao: ", nome, preco[i]);
+	printf(" NOME: %s, PRECO: %.2f\n------------------------------\nConfirma operacao?\n------------------------------\n[1] -	Sim\n[2] -	Nao\n------------------------------\n Opcao: ", nomes[i], preco[i]);
 	scanf("%d", &conf);
 	printf("------------------------------\n");
 	}//FOR
@@ -46,7 +47,10 @@ int main()
 	}//CASE
 	case 2:
 		{
-	
+		for(int x = 0; x < qtd; x++)
+		{
+			printf("%s, %f\n", nomes[x], preco[x]);
+		}
 		}
 }
 		
