@@ -100,7 +100,24 @@ int main()
 		}
 		case 4:
 			{
-				
+				int opecao;
+				int a;
+				printf("Digite o ID produto que deseja excluir: ");
+				scanf("%d", &opecao);
+				for(a = 0; a < qtd; a++)
+				{
+					printf("alterando o produto com id %d", opecao);
+				if(opecao == id[a])
+				{
+					id[a] = id[a + 1];
+					qtd--;
+				}
+					
+				}
+					printf("[1]-	Voltar ao menu anterior\n");
+	scanf("%d", &menu);
+	if(menu == 1) return main();
+	break;
 			}
 		
 }
