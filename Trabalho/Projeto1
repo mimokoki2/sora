@@ -17,7 +17,7 @@ int main()
 	system("color 0a");
 	printf("O que deseja fazer?\n");
 	printf("------------------------------\n");
-	printf("[1] -	Cadastro de Produto\n[2] -	Mostrar Estoque\n[3] -	Alterar Produto\n[4] -	Excluir Produto\n[5] - 	Pesquisar\n[7] -	Sair do programa\n-------------------------------\n");
+	printf("[1] -	Cadastro de Produto\n[2] -	Mostrar Estoque\n[3] -	Alterar Produto\n[4] -	Excluir Produto\n[5] - 	Pesquisar\n[6] -	Sair do programa\n-------------------------------\n");
 	printf("opcao: ");
 	scanf("%d", &op);
 	printf("------------------------------\n");
@@ -104,9 +104,11 @@ int main()
 				int a;
 				printf("Digite o ID produto que deseja excluir: ");
 				scanf("%d", &opecao);
+				printf("------------------------------\n");
 				for(a = 0; a < qtd; a++)
 				{
-					printf("alterando o produto com id %d", opecao);
+					printf("Apagando o produto com id %d\n", opecao);
+					printf("------------------------------\n");
 				if(opecao == id[a])
 				{
 					id[a] = id[a + 1];
