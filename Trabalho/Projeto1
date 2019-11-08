@@ -1,13 +1,16 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
-	int qtd,dt, op, conf;
+	int qtd[100];
+	int dt, op, conf;
 	float preco[100];
 	char nomes[100][100];
 	int i, menu;
 	int aux = 0;
 	 int id[100];
 	 int ida;
+	 	int operacao;
+
 int main()
 {
 
@@ -25,11 +28,13 @@ int main()
 	{
 	case 1:
 	{
-	printf("Digite a quantidade de produtos a serem Cadastrados: ");
-	scanf("%d", &qtd);
-	for(i = 0; i < qtd; i++)
+		do
+		{
+	printf("Deseja cadastrar um produto?\nb[1]- 	Sim\n[2]- 	nao\n ");
+	printf("opcao: ");
+	scanf("%d", &operacao);
+	if(operacao == 1)
 	{
-	aux = i + aux;
 	printf("ID: ");
 	scanf("%d", &id[i]);
 	printf("Nome: ");
@@ -40,10 +45,14 @@ int main()
 	printf("ID: %d, NOME: %s, PRECO: %.2f\n------------------------------\nConfirma operacao?\n------------------------------\n[1] -	Sim\n[2] -	Nao\n------------------------------\n Opcao: ", id[i], nomes[i], preco[i]);
 	scanf("%d", &conf);
 	printf("------------------------------\n");
-	}//FOR
-	printf("[1]-	Voltar ao menu anterior\n");
-	scanf("%d", &menu);
-	if(menu == 1) return main();
+	}else{
+
+			 return main();
+	}
+
+	
+}while(operacao == 1);
+
 	break;
 	
 	}//CASE
@@ -109,9 +118,9 @@ int main()
 				{
 					printf("Apagando o produto com id %d\n", opecao);
 					printf("------------------------------\n");
-				if(opecao == id[a])
+				if(opecao == qtd[a])
 				{
-					id[a] = id[a + 1];
+				
 					qtd--;
 				}
 					
