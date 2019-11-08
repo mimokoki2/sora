@@ -87,7 +87,7 @@ int main()
 						printf("------------------------------\n");
 					}
 				}else{
-					printf("ID nao encontrado\n");
+					printf("ID Nao encontrado.\n");
 				}
 				
 
