@@ -1,96 +1,64 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<conio.h>
-	int qtd[100];
-	int dt, op, conf;
-	float preco[100];
-	char nomes[100][100];
-	int i, menu;
-	int aux = 0;
-	 int id[100];
-	 int ida;
-	 	int operacao;
-
-int main()
+	int qtd;
+	int ope;
+struct produto
 {
-
+	int id[100];
+	char nome[100][100];
+	float preco[100];
 	
-	fflush(stdin);
-	system("cls");
-	system("color 0a");
-	printf("O que deseja fazer?\n");
-	printf("------------------------------\n");
-	printf("[1] -	Cadastro de Produto\n[2] -	Mostrar Estoque\n[3] -	Alterar Produto\n[4] -	Excluir Produto\n[5] - 	Pesquisar\n[6] -	Sair do programa\n-------------------------------\n");
-	printf("opcao: ");
-	scanf("%d", &op);
-	printf("------------------------------\n");
-	switch(op)
-	{
-	case 1:
-	{
-		do
-		{
-	printf("Deseja cadastrar um produto?\nb[1]- 	Sim\n[2]- 	nao\n ");
-	printf("opcao: ");
-	scanf("%d", &operacao);
-	if(operacao == 1)
-	{
-	printf("ID: ");
-	scanf("%d", &id[i]);
-	printf("Nome: ");
-	scanf("%s", &nomes[i]);
-	printf("preco: ");
-	scanf("%f", &preco[i]);
-	printf("------------------------------\n");
-	printf("ID: %d, NOME: %s, PRECO: %.2f\n------------------------------\nConfirma operacao?\n------------------------------\n[1] -	Sim\n[2] -	Nao\n------------------------------\n Opcao: ", id[i], nomes[i], preco[i]);
-	scanf("%d", &conf);
-	printf("------------------------------\n");
-	}else{
+	
+};
+struct produto op;
 
-			 return main();
+int op1()
+{
+	if(ope == 1)
+	{
+		printf("Digite a quantidade de produtos: ");
+		scanf("%d", &qtd);
+		for(int i = 0; i < qtd; i++)
+		{
+			printf("ID: ");
+			scanf("%d", &op.id[i]);
+			printf("Nome: ");
+			scanf("%s", &op.nome[i]);
+			printf("preco");
+			scanf("%f", &op.preco[i]);
+		}
 	}
-
-	
-}while(operacao == 1);
-
-	break;
-	
-	}//CASE
-	case 2:
+}
+int op2()
+{
+	int men;
+	for(int i = 0; i < qtd; i++)
+	{
+		printf("ID:%d, Nome: %s, Preco: %.2f.\n", op.id[i], op.nome[i], op.preco[i]);
+		
+		
+	}
+}
+int op3()
+{
+	int ida, opec;
+	printf("Digite o ID do produto que deseja alterar: ");
+	scanf("%d", &ida);
+	for(int i = 0; i < qtd; i++)
+	{
+		if(ida == op.id[i])
 		{
-		for(int x = 0; x < qtd; x++)
-		{
-			printf("ID: %d, Nome: %s, Valor: %.2f\n",id[x], nomes[x], preco[x]);
-		}
-	printf("[1]-	Voltar ao menu anterior\n");
-	scanf("%d", &menu);
-	if(menu == 1) return main();
-		break;
-		}
-	case 3:
-		{
-			int opicao;
-			printf("Digite o ID do produto que deseja alterar: ");
-			scanf("%d", &ida);
-	
-			
-			
-			for(int d = 0; d < qtd; d++)
-			{
-				if(ida == id[d]) 
-				{
-					printf("Deseja alterar o produto com ID: %d ?\n", id[d]);
-					printf("[1] -	sim\n[2]- 	nao\n");
-					printf("opcao: ");
-					scanf("%d", &opicao);
-					if(opicao == 1)
+			printf("Deseja alterar o produto com ID %d?");
+			printf("[1] -	sim\n[2]- 	nao\n");
+			scanf("%d", &opec);
+			if(opec == 1)
 					{
 						printf("Digite o novo ID: ");
-						scanf("%d", &id[d]);
+						scanf("%d", &op.id[i]);
 						printf("Digite o novo nome: ");
-						scanf("%s", &nomes[d]);
+						scanf("%s", &op.nome[i]);
 						printf("Preco: ");
-						scanf("%f", &preco[d]);
+						scanf("%f", &op.preco[i]);
 						printf("------------------------------\n");
 						printf("Produto alterado com sucesso!\n");
 						printf("------------------------------\n");
@@ -98,40 +66,42 @@ int main()
 				}else{
 					printf("ID Nao encontrado.\n");
 				}
-				
 
-			}
-			
-	printf("[1]-	Voltar ao menu anterior\n");
-	scanf("%d", &menu);
-	if(menu == 1) return main();
-	break;
 		}
-		case 4:
+	}
+
+
+int main()
+{
+	system("cls");
+	system("color 0a");
+	printf("O que deseja fazer?\n");
+	printf("------------------------------\n");
+	printf("[1] -	Cadastro de Produto\n[2] -	Mostrar Estoque\n[3] -	Alterar Produto\n[4] -	Excluir Produto\n[5] - 	Pesquisar\n[6] -	Sair do programa\n-------------------------------\n");
+	printf("opcao: ");
+	scanf("%d", &ope);
+	printf("------------------------------\n");
+	switch(ope)
+	{
+		case 1:
 			{
-				int opecao;
-				int a;
-				printf("Digite o ID produto que deseja excluir: ");
-				scanf("%d", &opecao);
-				printf("------------------------------\n");
-				for(a = 0; a < qtd; a++)
-				{
-					printf("Apagando o produto com id %d\n", opecao);
-					printf("------------------------------\n");
-				if(opecao == qtd[a])
-				{
+				op1();
+				return main();
+				break;
+			} 
+		case 2:
+			{
+				op2();
 				
-					qtd--;
-				}
-					
-				}
-					printf("[1]-	Voltar ao menu anterior\n");
-	scanf("%d", &menu);
-	if(menu == 1) return main();
-	break;
+				break;
 			}
-		
+		case 3:
+			{
+				op3();
+				return main();
+				break;
+			}
+	}
+return 0;
 }
-		
-	return 0;
-}
+	
