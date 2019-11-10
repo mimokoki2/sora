@@ -1,54 +1,151 @@
 #include<stdio.h>
 #include<stdlib.h>
-	int qtd;
-	int ope;
+#include<locale.h>
+#include<string.h>
+	int ope, erro, linha, cadastra;
 struct produto
 {
 	int id[100];
+	int qtd[100];
 	char nome[100][100];
 	float preco[100];
 	
 	
-};
-struct produto op;
-
-int op1()
+}op;
+void op1();
+void op2();
+void op3();
+void op4();
+void op5();
+int main(void)
 {
-	if(ope == 1)
+	setlocale(LC_ALL, "portuguese");
+	system("cls");
+	system("color 0a");
+	printf("O que deseja fazer?\n");
+	printf("------------------------------\n");
+	printf("[1] -	Cadastro de Produto\n[2] -	Mostrar Estoque\n[3] -	Alterar Produto\n[4] -	Excluir Produto\n[5] - 	Pesquisar\n[6] -	Sair do programa\n-------------------------------\n");
+	printf("opcao: ");
+	scanf("%d", &ope);
+	printf("------------------------------\n");
+	if(ope < 0)
 	{
-		printf("Digite a quantidade de produtos: ");
-		scanf("%d", &qtd);
-		for(int i = 0; i < qtd; i++)
+		printf("Opção não disponível\nDigite [1] para começar novamente.");
+		scanf("%d", &erro);
+		system("cls");
+		if(erro == 1) main();
+	}	
+	if(ope > 6)
+	{
+		printf("Opção não disponível\nDigite [1] para começar novamente.");
+		scanf("%d", &erro);
+		system("cls");
+		if(erro == 1) main();
+	}
+	switch(ope)
+	{
+		case 1:
+			{
+				 op1();
+				 return main();
+				break;
+			} 
+		case 2:
+			{
+				 op2();
+				return main();
+				break;
+			}
+		case 3:
+			{
+				 op3();
+				return main();
+				break;
+			}
+		case 4:
+			{
+				 op4();
+				return main();
+				break;
+			}
+		case 5:
+			{
+				op5();
+				return main();
+				break;
+			}
+	}
+return 0;
+}
+void op1()
+{
+	int i;
+	int aux = 0;
+	int aux2 = aux + i;
+	int conti, error;
+	int idd, nada;
+	{
+		do
 		{
+			system("cls");
 			printf("ID: ");
-			scanf("%d", &op.id[i]);
-			printf("Nome: ");
-			scanf("%s", &op.nome[i]);
-			printf("preco");
-			scanf("%f", &op.preco[i]);
-		}
+			scanf("%d", &idd);
+			op.id[cadastra] = idd;
+			if(op.id[cadastra] < 0)
+			{
+			printf("Valores negativos não são aceitos\nDigite [1] para começar novamente.");
+			scanf("%d", &erro);
+			system("cls");
+			if(erro == 1) main();
+			}
+			for( i = 0; i < linha; i++)
+				{
+					if(op.id[i] == idd) 
+					{
+						
+						op.qtd[i] = op.qtd[i] + 1;
+						printf("ID já cadastrado,\n\n+ 1 foi adicionado a Quantidade.\n\n[1] -	Voltar");
+						scanf("%d", &nada);
+						if(nada != 1) main();
+						if(nada == 1) main();
+						}				
+				}
+			printf("\nNome: ");
+			scanf("%s", &op.nome[cadastra]);
+			printf("\npreço: ");
+			scanf("%f", &op.preco[cadastra]);
+			printf("\nQuantidade: ");
+			scanf("%d", &op.qtd[linha]);
+			printf("\nProduto cadastrado com sucesso, deseja continuar?: \n[1] 	Sim\n[2] -	Não");
+			scanf("%d", &conti);
+			i++;
+			linha++;
+			cadastra++;	
+		}while(conti == 1);
 	}
 }
-int op2()
+void op2()
 {
 	int men;
-	for(int i = 0; i < qtd; i++)
+	for(int i = 0; i < linha; i++)
 	{
-		printf("ID:%d, Nome: %s, Preco: %.2f.\n", op.id[i], op.nome[i], op.preco[i]);
-		
-		
+		if(op.id[i] > 0)
+		printf("ID:%d, Nome: %s, Preco: %.2f, Quanatidade: %d.\n", op.id[i], op.nome[i], op.preco[i], op.qtd[i]);	
 	}
+	printf("Digite [1] para voltar\n");
+	scanf("%d", &men);
 }
-int op3()
+void op3()
 {
+	system("cls");
 	int ida, opec;
 	printf("Digite o ID do produto que deseja alterar: ");
 	scanf("%d", &ida);
-	for(int i = 0; i < qtd; i++)
+	for(int i = 0; i < linha; i++)
 	{
 		if(ida == op.id[i])
 		{
-			printf("Deseja alterar o produto com ID %d?");
+			printf("Deseja alterar o produto com ID %d?\n");
 			printf("[1] -	sim\n[2]- 	nao\n");
 			scanf("%d", &opec);
 			if(opec == 1)
@@ -66,42 +163,69 @@ int op3()
 				}else{
 					printf("ID Nao encontrado.\n");
 				}
-
 		}
 	}
-
-
-int main()
+void op4()
 {
 	system("cls");
-	system("color 0a");
-	printf("O que deseja fazer?\n");
-	printf("------------------------------\n");
-	printf("[1] -	Cadastro de Produto\n[2] -	Mostrar Estoque\n[3] -	Alterar Produto\n[4] -	Excluir Produto\n[5] - 	Pesquisar\n[6] -	Sair do programa\n-------------------------------\n");
-	printf("opcao: ");
-	scanf("%d", &ope);
-	printf("------------------------------\n");
-	switch(ope)
+	int idex;
+	printf("Digite o ID do produto que deseja excluir: ");
+	scanf("%d", &idex);
+	for(int i = 0; i < linha; i++)
+	{
+		if(idex == op.id[i])
+		{
+			op.id[i] = {-1};
+	 	}
+		
+	}
+}
+void op5()
+{
+	int pesqid, pesq, i, retorno;
+	char pesqnome[100];
+	int men;
+	float pesqpreco;
+	printf("[1] -	Pesquisa por ID\n");
+	printf("[2] -	Pesquisa por Nome\n");
+	printf("[3] -	Pesquisa por Preço\n");
+	scanf("%d", &pesq);
+	switch(pesq)
 	{
 		case 1:
 			{
-				op1();
-				return main();
+				printf("Digite o ID: ");
+				scanf("%d", &pesqid);
+				for( i = 0; i < cadastra; i++)
+				{
+					if(pesqid == op.id[i]) 
+					{
+						printf("ID:%d, Nome: %s, Preco: %.2f.\n", op.id[i], op.nome[i], op.preco[i], op.qtd[i]);	
+							printf("Digite [1] para voltar\n");
+							scanf("%d", &men);
+					}				
+				}break;
+				for(int a = 0; a < linha; a++)
+				{
+					if(pesqid != op.id[a])
+					{
+						printf("Produto Não cadastrado.");
+						printf("Digite [1] para voltar\n");
+						scanf("%d", &men);
+					}
+				}
 				break;
-			} 
+			}
+	
 		case 2:
 			{
-				op2();
-				
-				break;
+				printf("digita ai: ");
+				scanf("%s", &pesqnome[50]);
+   				for(int a = 0; a < linha; a++)
+				{
+					if (strcmp (pesqnome, op.nome[a]) == 0 ) printf("oi");
+
+				}break;
 			}
-		case 3:
-			{
-				op3();
-				return main();
-				break;
-			}
-	}
-return 0;
 }
-	
+}
