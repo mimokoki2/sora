@@ -188,7 +188,6 @@ void op5()
 	float pesqpreco;
 	printf("[1] -	Pesquisa por ID\n");
 	printf("[2] -	Pesquisa por Nome\n");
-	printf("[3] -	Pesquisa por Preço\n");
 	scanf("%d", &pesq);
 	switch(pesq)
 	{
@@ -218,13 +217,16 @@ void op5()
 			}
 	
 		case 2:
-			{
+			{ 
+				int retorno;
 				printf("digita ai: ");
-				scanf("%s", &pesqnome[50]);
-   				for(int a = 0; a < linha; a++)
+				fflush(stdin);
+				fgets(pesqnome, 50, stdin);
+	   				for(int a = 0; a < linha; a++)
 				{
-					if (strcmp (pesqnome, op.nome[a]) == 0 ) printf("oi");
-
+					retorno = strcmp(op.nome[a], pesqnome);
+					printf("%s", op.nome[0][0]);
+					system("pause");
 				}break;
 			}
 }
