@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script type="text/javascript">
+	
+
+function preencher(botao)
+{
+   a = document.getElementById('text').value +=  botao;
+   parseInt(a);
+   
+
+}
+function teste()
+{
+	b = document.getElementById('aux').value = a;
+	document.getElementById('text').value = '+';
+}
+function resultado()
+{
+	somar = parseInt(a) + parseInt(b);
+	document.getElementById('text').value = somar;
+}
+
+	</script>
+</head>
+<body>
+	<center>
+<input type="text"  id="text" class="visor" ><br>
+<input type="button" class="botao" value="1" onclick="preencher(value);">
+<input type="button" class="botao" value="2" onclick="preencher(value);">
+<input type="button" class="botao" value="3" onclick="preencher(value);">
+<input type="button" class="botao" value="4" onclick="preencher(value);">
+<input type="button" class="botao" value="+" onclick="teste();">
+<input type="button" value="=" onclick="resultado();">
+<div id="aux">
+</div>
+</center>
+</body>
+</html>
