@@ -1,0 +1,87 @@
+#include<stdio.h>
+#include<locale.h>
+#include<stdlib.h>
+
+void um()
+{
+	int idade, sexo;
+	float salario;
+	
+	system("color 0a");
+	system("cls");
+	printf("Digite sua idade: ");
+	scanf("%d", &idade);
+	
+	
+	printf("\n[1]-	Homem\n[2]-	Mulher\n");
+	printf("opção:");
+	scanf("%d", &sexo);
+
+	
+	printf("\nSalário Base: ");
+	scanf("%f", &salario);
+
+	if((idade > 40) && (sexo = 2) && (salario >= 50000))
+	{
+		printf("Feminino, com salário acima de R$50.000,00 e com idade acima de 40 anos.");
+	}
+	if((idade < 18) && (sexo = 1))
+	{
+		printf("Masculino ou feminino e idade entre 20 e 30 anos.");
+	}
+	else
+	{
+		printf("Não se encaixa em nenhuma das possibilidades anteriores.");
+	}
+}
+
+void dois()
+{
+	
+	int i,a,b,c,d,e,f, j;
+	for(i = 0; i < 1000; i++)
+	{
+		a = rand() % 5+1;
+		if(a == 1) b++;
+	  	if(a == 2) c++;
+	  	if(a == 3) d++;
+	  	if(a == 4) e++;
+	  	if(a == 5) f++;
+	  	if(a == 6) j++;
+
+	}
+	
+	printf("\nQuantidade de 1: %d", b);
+	printf("\nQuantidade de 2: %d", c);
+	printf("\nQuantidade de 3: %d", d);
+	printf("\nQuantidade de 4: %d", e);
+	printf("\nQuantidade de 5: %d", f);
+	printf("\nQuantidade de 6: %d", j);
+	
+}
+int main()
+{
+	int opcao;
+	system("color 0a");
+	setlocale(LC_ALL, "portuguese");
+	printf("[1]-	Salario");
+	printf("\n[2]-	Valores aletórios");
+	printf("\nOpção: ");
+	scanf("%d", &opcao);
+	switch(opcao)
+	{
+		case 1:
+			{
+				um();
+			}
+		case 2:
+		{
+			dois();
+		}	
+
+	}
+	
+	
+	  
+	return 0;
+}
