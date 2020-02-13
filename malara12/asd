@@ -1,0 +1,61 @@
+# include <stdio.h>
+# include <stdlib.h>
+#include <string.h>
+#include<locale.h>
+int main()
+{
+      setlocale(LC_ALL, "portuguese");
+	   char texto[10];
+	   int quantidade;
+	
+	   printf ("Digite uma frase\n");
+	   
+	   gets(texto);
+	
+	   quantidade = strlen(texto);
+	
+	   printf("\nnúmero de caracteres : %d",quantidade);
+	   printf("\n");
+	   fflush(stdin);
+	   system("pause");
+	   return 0;
+}
+
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	system("color 0a");
+	
+	int conjunto[10], aux2, opcao;
+	
+	for(int i = 0; i < 10; i++)
+	{
+		printf("Digite um número: ");
+		scanf("%d", &conjunto[i]);
+	
+	}
+	do
+	{
+		int aux = 0;
+		printf("Digite o número que deseja verificar: ");
+		scanf("%d", &aux2);
+		for(int i = 0; i < 10; i++)
+		{
+			if(aux2 == conjunto[i]) aux++;
+		}
+		printf("O número %d foi digitado %d vezes\n", aux2, aux);
+		printf("[1]-	Sair\n[2]-	Continuar");
+		scanf("%d", &opcao);
+		
+	}while(opcao != 1);
+	
+	
+	return 0;
+	
+}w
