@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
+void triangulo();
+void linha();
+int main()
+{
+	system("color 0a");
+	setlocale(LC_ALL, "portuguese");
+	linha();
+	triangulo();
+	linha();
+	
+	return 0;
+}
+
+void triangulo()
+{
+	float altura, area, base;
+	
+	printf("Digite a base: ");
+	scanf("%f", &base);
+	
+	printf("Digite a altura: ");
+	scanf("%f", &altura);
+
+	area = base * altura / 2;
+	
+	printf("Área = %.2f\n", area);
+	
+}
+void linha()
+{
+	for(int i = 0; i < 80; i++)
+	{
+		printf("-");
+	}
+	printf("\n");
+}
