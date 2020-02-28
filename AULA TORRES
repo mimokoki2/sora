@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
+#include<string.h>
+void ImprimeErro(char erro[])
+{
+	
+	printf("Ó MEU DEUS UM PROBLEMA: %s", erro);
+}
+bool liberaAcesso(int idade)
+{
+	if(idade < 18)
+	{
+		return false;
+	}else{
+		return true;
+	}
+}
+
+
+
+int main()
+{
+	system("color 0a");
+	setlocale(LC_ALL, "portuguese");
+	//ImprimeErro("teste");
+	
+	int TamanhoString = 150;
+	char nome[TamanhoString];
+	int idade;
+	printf("Digite seu nome: ");
+	fflush(stdin);
+	scanf("%s", &nome);
+	printf("Qual sua idade: ");
+	scanf("%i", &idade);
+	//verifica se tem acesso liberado
+	if(liberaAcesso(idade))
+	{
+		printf("Seja bem vindo(a) %s", nome);
+	}else{
+		ImprimeErro("é menor de 18 anos!");
+	}
+	
+	return 0;
+}
