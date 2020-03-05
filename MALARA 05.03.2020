@@ -1,0 +1,146 @@
+/*4) Elabore um programa de cadastro de notas de uma turma com no máximo 100 alunos.
+O usuário poderá digitar o RA do aluno e 2 notas bimestrais para cada aluno
+O programa deverá ter as seguintes funcionalidades:
+i) Cadastrar uma nova nota para um aluno (inicialmente o cadastro começa com nenhum aluno cadastrado).
+ii) Consultar as notas cadastradas para um determinado aluno, pesquisando pelo RA.
+iii) Calcular as médias finais de cada aluno e exibir um relatório com os RAs, notas bimestrais e médias na tela do computador
+iv) Calcular a quantidade de alunos e a média geral da turma
+Cada uma das 4 funcionalidades deverá ser feita dentro de um procedimento
+Crie um menu de opções na função main para que o usuário possa escolher qual das 4 opções ele deseja realizar ou 5 caso ele queira sair do programa.*/
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
+#define MAX 100
+//////////////////////////////////////////////////////////////////
+int ra[MAX];
+float bim1[MAX], bim2[MAX], media[MAX];
+int qtd = 0;
+///////////////////////////////////////////////////////////////////
+void linha();
+void cadastro();
+void consulta();
+void qtda();
+void menu()
+{
+
+	int opcao;
+	system("cls");
+	printf("[1] - Cadastrar aluno	|\n");
+	printf("[2] - Consultar nota	|\n");
+	printf("[3] - QTD aluno		|\n");
+	linha();
+	printf("Opção: ");
+	scanf("%d", &opcao);
+	switch(opcao)
+	{
+		case 1:
+			{
+				cadastro();
+				break;
+			}
+		case 2:
+			{
+				consulta();
+				break;
+			}
+		case 3:
+			{
+				qtda();
+				break;
+			}
+	}
+}
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	system("color 0a");
+	menu();
+}
+void cadastro()
+{
+	int selc;
+	do
+	{
+		
+		system("cls");
+		printf("RA: ");
+		scanf("%d", &ra[qtd]);
+		linha();
+		for(int i = 0; i < qtd; i++)
+		{
+			if(ra[qtd] == ra[i]) 
+			{
+				printf("JÁ EXISTE NO SISTEMA, RECOMEÇANDO...");
+				system("pause");
+				cadastro();
+			}
+			
+		}
+		printf("Nota Bim1: ");
+		scanf("%f", &bim1[qtd]);
+		linha();
+
+		printf("Nota Bim2: ");
+		scanf("%f", &bim2[qtd]);
+		media[qtd] = (bim1[qtd] + bim2[qtd]) / 2;
+		linha();
+							
+		qtd++;
+		printf("     Aluno Cadastrado  !\n-------------------------\n[1] - Continuar\n[2] - Sair\n");
+		linha();
+		printf("opção: ");
+		scanf("%d", &selc);
+		
+	}while(selc != 2);
+	menu();
+}
+void consulta()
+{
+	int pesqra;
+	system("cls");
+	printf("Digite o RA do aluno: ");
+	scanf("%d", &pesqra);
+	linha();
+	for(int i = 0; i < MAX; i++)
+	{
+		if(ra[i] == pesqra)
+		{
+			printf("RA: [%d]\n | Nota 1: [%.2f]\n | Nota 2: [%.2f]\n | Média: [%.2f].\n", ra[i], bim1[i], bim2[i], media[i]);
+		}
+	}
+	system("pause");
+	menu();
+}
+void qtda()
+{
+	float TOTAL = 0;
+	system("cls");
+	printf("Quantidade de alunos cadastrados = [%d]\n[Enter] - Mostrar media TODOS\n", qtd);
+	system("pause");
+	system("cls");
+	
+	linha();
+	for(int i = 0; i < qtd; i++)
+	{
+	printf("RA: [%d]\n | Nota 1: [%.2f]\n | Nota 2: [%.2f]\n | Média: [%.2f].\n", ra[i], bim1[i], bim2[i], media[i]);
+	TOTAL += bim1[i] + bim2[i];
+	}
+	printf("[Enter] - Mostrar MEDIA TOTAL SALA...\n");
+	system("pause");
+	TOTAL = TOTAL / qtd;
+	system("cls");
+	printf("MEDIA TOTAL SALA: = [%.2f]\n", TOTAL);
+	system("pause");
+	menu();
+}
+void linha()
+{
+	for(int i = 0; i < 25; i++)
+	{
+		printf("-");
+	}
+	printf("\n");
+}
