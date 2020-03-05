@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
+#define pi 3.141592
+void cilindro();
+void linha();
+void triangulo();
+int main()
+{
+	system("color 0a");
+	setlocale(LC_ALL, "portuguese");
+	int opcao;
+	printf("[1] - Cilindro\n[2] - Área Triângulo\n");
+	printf("Opção: ");
+	scanf("%d", &opcao);
+		switch(opcao)
+		{
+			case 1:
+				{
+					cilindro();
+				}
+			case 2:
+				{
+					triangulo();
+				}
+		}
+	
+	
+	return 0;
+}
+
+void cilindro()
+{
+	system("cls");
+	float raio, altura;
+	float volume;
+	
+	int num;
+	
+	printf("Raio: ");
+	scanf("%f", &raio);
+	linha();
+	
+	printf("Altura: ");
+	scanf("%f", &altura);
+	linha();
+	volume =  pi * raio * 2 * altura;
+	printf("Volume do cilindro = [%0.6f]", volume);
+}
+void triangulo()
+{
+	system("cls");
+	float base, altura, resultado;
+	
+	printf("Base: ");
+	scanf("%f", &base);
+	linha();
+	
+	printf("Altura: ");
+	scanf("%f", &altura);
+	linha();
+	
+	resultado = base * altura / 2;
+	printf("Área = [%.2f]", resultado);
+}
+void linha()
+{
+	for(int i = 0; i < 80; i++)
+	{
+		printf("-");
+	}
+	printf("\n");
+}
